@@ -1,0 +1,669 @@
+/* Style.css - Système de Gestion de Don de Sang */
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* En-tête */
+.header {
+    background: linear-gradient(135deg, #dc2430 0%, #7b1818 100%);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '💉';
+    position: absolute;
+    font-size: 150px;
+    opacity: 0.1;
+    right: -30px;
+    top: -30px;
+}
+
+.header h1 {
+    color: white;
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+/* Navigation principale */
+.main-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1.2em;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.nav-btn:hover::before {
+    left: 100%;
+}
+
+.nav-btn:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.dashboard-btn {
+    border-left: 6px solid #dc2430;
+}
+
+.dashboard-btn:hover {
+    background: linear-gradient(135deg, #dc2430 0%, #7b1818 100%);
+    color: white;
+}
+
+.donneurs-btn {
+    border-left: 6px solid #06d6a0;
+}
+
+.donneurs-btn:hover {
+    background: linear-gradient(135deg, #06d6a0 0%, #05c291 100%);
+    color: white;
+}
+
+.receveurs-btn {
+    border-left: 6px solid #ef476f;
+}
+
+.receveurs-btn:hover {
+    background: linear-gradient(135deg, #ef476f 0%, #d63854 100%);
+    color: white;
+}
+
+.dons-btn {
+    border-left: 6px solid #ffd60a;
+}
+
+.dons-btn:hover {
+    background: linear-gradient(135deg, #ffd60a 0%, #e6c200 100%);
+    color: #333;
+}
+
+/* Section Call-to-Action */
+.cta-section {
+    background: linear-gradient(135deg, #06d6a0 0%, #05c291 100%);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(6, 214, 160, 0.3);
+}
+
+.cta-section h2 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    color: white;
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 18px 40px;
+    background: white;
+    color: #06d6a0;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* Sections d'information */
+.info-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.info-card {
+    margin-bottom: 30px;
+}
+
+.info-section h2 {
+    color: #dc2430;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #dc2430;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+    color: #dc2430;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.feature-card ul {
+    list-style: none;
+    color: #555;
+}
+
+.feature-card li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.feature-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #dc2430;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Section groupes sanguins */
+.blood-types-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.blood-types-section h2 {
+    color: #dc2430;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.2em;
+}
+
+.blood-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blood-card {
+    background: linear-gradient(135deg, #dc2430 0%, #7b1818 100%);
+    color: white;
+    padding: 35px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(220, 36, 48, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.blood-card:hover {
+    transform: translateY(-8px) rotate(2deg);
+    box-shadow: 0 15px 35px rgba(220, 36, 48, 0.5);
+}
+
+.blood-card h3 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.blood-card p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.universal {
+    font-weight: bold;
+    font-size: 0.9em;
+    background: rgba(255,255,255,0.2);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Cards pour statistiques */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #dc2430, #ef476f, #ffd60a, #06d6a0);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover::after {
+    transform: scaleX(1);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.stat-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.stat-number {
+    font-size: 2.8em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #dc2430 0%, #7b1818 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 10px 0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+/* Tables */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+thead {
+    background: linear-gradient(135deg, #dc2430 0%, #7b1818 100%);
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background: #f8f9fa;
+}
+
+/* Formulaires */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #dc2430;
+    box-shadow: 0 0 0 3px rgba(220, 36, 48, 0.1);
+}
+
+select.form-control {
+    cursor: pointer;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Boutons */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #dc2430;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #b81d28;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 36, 48, 0.3);
+}
+
+.btn-success {
+    background: #06d6a0;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #05c291;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(6, 214, 160, 0.3);
+}
+
+.btn-danger {
+    background: #ef476f;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #d63854;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(239, 71, 111, 0.3);
+}
+
+.btn-warning {
+    background: #ffd60a;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background: #e6c200;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 214, 10, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.85em;
+}
+
+/* Messages d'alerte */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.badge-actif {
+    background: #28a745;
+    color: white;
+}
+
+.badge-inactif {
+    background: #dc3545;
+    color: white;
+}
+
+.badge-urgent {
+    background: #dc3545;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.badge-attente {
+    background: #ffc107;
+    color: #333;
+}
+
+.badge-satisfait {
+    background: #28a745;
+    color: white;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Actions buttons dans les tables */
+.action-btns {
+    display: flex;
+    gap: 10px;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #dc2430 0%, #7b1818 100%);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    color: white;
+}
+
+.footer p {
+    margin: 8px 0;
+    font-size: 1.1em;
+}
+
+.footer strong {
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .header::before {
+        font-size: 80px;
+        right: -10px;
+        top: -10px;
+    }
+    
+    .main-nav {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blood-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    table {
+        font-size: 0.9em;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+    
+    .cta-section {
+        padding: 30px 20px;
+    }
+    
+    .cta-section h2 {
+        font-size: 1.8em;
+    }
+    
+    .stat-number {
+        font-size: 2.2em;
+    }
+}
